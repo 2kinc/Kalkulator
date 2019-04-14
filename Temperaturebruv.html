@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>Fahrenheit to celsius</title>
+</head>
+<body>
+  <form>
+   Enter temperature in Fahrenheit:
+   <input type="number" id="degF">
+   <br/>
+
+   <button type="button" id="btn" onclick="conversion()">Convert</button>
+   <br/>
+
+   Temperature in Celcius:
+   <p id="degC"></p>
+
+  </form>
+  <script type="text/javascript">
+   function conversion(){
+    var button=document.getElementById("btn");
+    var degF= document.getElementById("degF").value;
+    var degC=(degF - 32) * (5 / 9);
+    document.getElementById("degC").innerHTML = degC; 
+   }
+
+  </script>
+ 
+</body>
+</html>﻿
