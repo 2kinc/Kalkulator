@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Kalkulator by 2K inc.</title>
+    <link rel="stylesheet" href="material.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?lang=en&family=Product+Sans|Roboto:400,700" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            user-select: none;
+        }
+
+        .calcbutton {
+            width: 85px;
+            height: 85px;
+            font-size: 275%;
+        }
+
+        .mdc-grid-tile {
+            --mdc-grid-list-tile-width: 100px;
+        }
+
+        .mdc-grid-list {
+            width: 416px;
+        }
+	:root {
+  	    --mdc-theme-primary: #2196F3;
+            --mdc-theme-secondary: #ff9800;
+            --mdc-theme-background: #fff;
+        }
+        .results {
+            width: 278px;
+            max-width: 278px;
+            overflow: auto;
+            max-height: 100px;
+            text-align: right;
+            font-size: 400%;
+            z-index: 3;
+            overflow-y: hidden;
+            margin-left: 30px;
+            border: none!important;
+        }
+
+        .results:focus {
+            border: none!important;
+        }
+
+        .clear {
+            width: 100px;
+            height: 100px;
+            font-size: 300%;
+            border-radius: 50%;
+            bottom:15px;
+        }
+    </style>
+</head>
+
+<body>
+<aside id="more_by"
+  class="mdc-dialog"
+  role="alertdialog"
+  aria-labelledby="my-mdc-dialog-label"
+  aria-describedby="my-mdc-dialog-description">
+  <div class="mdc-dialog__surface">
+    <header class="mdc-dialog__header">
+      <h2 id="my-mdc-dialog-label" class="mdc-dialog__header__title">
+        More By 2K inc.
+      </h2>
+    </header>
+    <section id="my-mdc-dialog-description" class="mdc-dialog__body" style="color:inherit;">
+      Trick or Treat! ^_^: A fun game for all ages. A fun clicker where you can collect trillions of candy to buy jobs and increase your multiplier to get even more! <br><a target="_blank" href="https://chrome.google.com/webstore/detail/trick-or-treat/migjjgahlnpolhmacicegfjdpbbnhngc" style="text-decorations:none;" class="mdc-button mdc-button--outlined mdc-button--dense">You can get it here.</a><br><br>
+
+      Fidget Tab: Bored of your lame New Tab? We've made a New Tab extension that you can fidget with! <br><a href="https://chrome.google.com/webstore/detail/fidget-tab/ljmegekilcconhdhdokehkomdkhhjmhi" target="_blank" style="text-decorations:none;" class="mdc-button mdc-button--outlined mdc-button--dense">You can get it here.</a></p>
+    </section>
+    <footer class="mdc-dialog__footer">
+      <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Close</button>
+    </footer>
+  </div>
+  <div class="mdc-dialog__backdrop"></div>
+</aside>
+<aside id="theme"
+    class="mdc-dialog"
+    role="alertdialog"
+    aria-labelledby="mdc-dialog-with-list-label"
+    aria-describedby="mdc-dialog-with-list-description">
+    <div class="mdc-dialog__surface">
+      <header class="mdc-dialog__header">
+        <h2 id="mdc-dialog-with-list-label" class="mdc-dialog__header__title">
+          Choose a theme
+        </h2>
+      </header>
+      <section class="mdc-dialog__body">
+      <div class="mdc-form-field">
+  <div class="mdc-radio">
+    <input class="mdc-radio__native-control" type="radio" id="light" name="radios" checked>
+    <div class="mdc-radio__background">
+      <div class="mdc-radio__outer-circle"></div>
+      <div class="mdc-radio__inner-circle"></div>
+    </div>
+  </div>
+  <label for="radio-1">Light</label>
+</div><br>
+<div class="mdc-form-field">
+  <div class="mdc-radio">
+    <input class="mdc-radio__native-control" type="radio" id="dark" name="radios">
+    <div class="mdc-radio__background">
+      <div class="mdc-radio__outer-circle"></div>
+      <div class="mdc-radio__inner-circle"></div>
+    </div>
+  </div>
+  <label for="radio-1">Dark</label>
+</div>
+      </section>
+      <footer class="mdc-dialog__footer">
+        <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Close</button>
+      </footer>
+    </div>
+    <div class="mdc-dialog__backdrop"></div>
+  </aside>
+<aside class="mdc-drawer mdc-drawer--temporary mdc-typography">
+  <nav class="mdc-drawer__drawer">
+    <header class="mdc-drawer__header">
+      <div class="mdc-drawer__header-content" style="font-size:300%;background:var(--mdc-theme-primary);color:white;font-family:'Product Sans', sans-serif;">
+        Menu
+      </div>
+    </header>
+    <nav id="icon-with-text-demo" class="mdc-drawer__content mdc-list">
+      <a class="mdc-list-item mdc-list-item--activated" href="#" id="more_by_button">
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">more</i>More By 2K inc.
+      </a>
+      <a class="mdc-list-item mdc-list-item--activated" id="panel" href="#">
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">open_in_new</i>Open in panel
+      </a>
+      <a class="mdc-list-item mdc-list-item--activated" id="theme_button" href="#">
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">color_lens</i>Change theme
+      </a>
+      <p style="font-size:75%;bottom:2px;left:5px;position:absolute;"><br><br><br><br><br><br><br><br>Using String-Math on <a href="https://github.com/devrafalko/string-math" target="_blank">github</a>. Version 1.2.1</p>
+    </nav>
+  </nav>
+</aside>
+<header class="mdc-top-app-bar mdc-top-app-bar--fixed" style="z-index:4; top:0; left:0; width:100%; background:transparent;color:white;">
+  <div class="mdc-top-app-bar__row" style="box-shadow: -1px 2px 11px 1px rgba(0, 0, 0, 0.5);background: var(--mdc-theme-primary);">
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+      <a href="#" class="material-icons mdc-top-app-bar__navigation-icon" id="menu-button" style="color:white;">menu</a>
+      <span class="mdc-top-app-bar__title" style="font-family:'Product Sans', sans-serif;">Kalkulator</span>
+    </section>
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+      <a href="#" class="material-icons mdc-top-app-bar__navigation-icon calcbuttoncopy" style="color:white;">content_copy</a>
+    </section>
+  </div>
+</header>
+<br><br><br><br><br><br>
+    <div class="mdc-grid-list" id="calculator">
+        <ul class="mdc-grid-list__tiles">
+            <li class="mdc-grid-tile">
+                <div style="white-space:nowrap;" class="mdc-grid-tile__primary results">
+                    0
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary" style="opacity:0;">
+
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary" style="opacity:0;">
+
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button clear" data-mdc-auto-init="MDCRipple">
+                        C
+                    </button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">7</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">8</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">9</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">
+                        �
+                    </button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">4</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">5</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">6</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">�</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">1</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">2</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">3</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">-</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton zerobutton" data-mdc-auto-init="MDCRipple">0</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">.</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">=</button>
+                </div>
+            </li>
+            <li class="mdc-grid-tile">
+                <div class="mdc-grid-tile__primary">
+                    <button class="mdc-button calcbutton" data-mdc-auto-init="MDCRipple">+</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+	<!--<button class="mdc-button mdc-button--raised" id="light">Light</button>
+	<button class="mdc-button mdc-button--raised" id="dark">Dark</button>
+    -->	
+	<script src="material.js"></script>
+    	<script src="index.js"></script>
+    	<script src="string-math.js"></script>
+</body>
+
+</html>
